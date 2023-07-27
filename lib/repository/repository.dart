@@ -10,9 +10,8 @@ class Repository {
   Future<List<Article>> fetchList() async {
     try {
       final articles = await _apiClient.fetchArticles();
-      return articles; // メソッドの返り値をList<Article>に修正
+      return articles;
     } catch (e) {
-      // エラー処理
       rethrow;
     }
   }

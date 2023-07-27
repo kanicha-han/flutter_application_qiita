@@ -3,10 +3,25 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'state.freezed.dart';
 
-//記事のリストを表示するためのウィジェットの状態
 @freezed
 class ArticleState with _$ArticleState {
   const factory ArticleState({
-    required List<Article> articles,
+    ArticleList? list,
+    List<Article>? articleList,
   }) = _ArticleState;
+  factory ArticleState.fromJson(Map<String, dynamic> json) =>
+      _$ArticleStateFromJson(json);
+}
+
+@freezed
+class ArticleList with _$ArticleList {
+  const factory ArticleList({
+    required int count,
+    required String next,
+    String? previous,
+    required List<Article> results,
+  }) = _ArticleList;
+
+  factory ArticleList.fromJson(Map<String, dynamic> json) =>
+      _$ArticleListFromJson(json);
 }

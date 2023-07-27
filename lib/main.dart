@@ -3,23 +3,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'view/top_page.dart';
 
 void main() {
-  runApp(const ProviderScope(
+  runApp(ProviderScope(
     child: MyApp(),
   ));
 }
 
-class MyApp extends ConsumerWidget {
-  const MyApp({super.key});
-
+class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Qiita',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+      home: Scaffold(
+        body: Scaffold(
+            body: Center(
+          child: TopPage(),
+        )),
       ),
-      home: const TopPage(),
     );
   }
 }

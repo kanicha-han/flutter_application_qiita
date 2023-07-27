@@ -37,21 +37,21 @@ dependencies:
   url_launcher:
   flutter_riverpod:
   flutter_hooks:
-  riverpod_annotation:
   http: ^0.13.3
   json_annotation: ^4.8.1
   json_serializable: ^6.7.1
   retrofit:
+  retrofit_generator:
+  freezed:
   freezed_annotation:
   dio:
-  retrofit_generator:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner:
   riverpod_generator:
-  freezed:
+
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
