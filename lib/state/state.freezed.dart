@@ -394,3 +394,183 @@ abstract class _ArticleList implements ArticleList {
   _$$_ArticleListCopyWith<_$_ArticleList> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+NewPostPageState _$NewPostPageStateFromJson(Map<String, dynamic> json) {
+  return _NewPostPageState.fromJson(json);
+}
+
+/// @nodoc
+mixin _$NewPostPageState {
+  String? get title => throw _privateConstructorUsedError;
+  String? get body => throw _privateConstructorUsedError;
+  List<String>? get tags => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NewPostPageStateCopyWith<NewPostPageState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $NewPostPageStateCopyWith<$Res> {
+  factory $NewPostPageStateCopyWith(
+          NewPostPageState value, $Res Function(NewPostPageState) then) =
+      _$NewPostPageStateCopyWithImpl<$Res, NewPostPageState>;
+  @useResult
+  $Res call({String? title, String? body, List<String>? tags});
+}
+
+/// @nodoc
+class _$NewPostPageStateCopyWithImpl<$Res, $Val extends NewPostPageState>
+    implements $NewPostPageStateCopyWith<$Res> {
+  _$NewPostPageStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = freezed,
+    Object? body = freezed,
+    Object? tags = freezed,
+  }) {
+    return _then(_value.copyWith(
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      body: freezed == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tags: freezed == tags
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_NewPostPageStateCopyWith<$Res>
+    implements $NewPostPageStateCopyWith<$Res> {
+  factory _$$_NewPostPageStateCopyWith(
+          _$_NewPostPageState value, $Res Function(_$_NewPostPageState) then) =
+      __$$_NewPostPageStateCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? title, String? body, List<String>? tags});
+}
+
+/// @nodoc
+class __$$_NewPostPageStateCopyWithImpl<$Res>
+    extends _$NewPostPageStateCopyWithImpl<$Res, _$_NewPostPageState>
+    implements _$$_NewPostPageStateCopyWith<$Res> {
+  __$$_NewPostPageStateCopyWithImpl(
+      _$_NewPostPageState _value, $Res Function(_$_NewPostPageState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = freezed,
+    Object? body = freezed,
+    Object? tags = freezed,
+  }) {
+    return _then(_$_NewPostPageState(
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      body: freezed == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tags: freezed == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_NewPostPageState implements _NewPostPageState {
+  const _$_NewPostPageState({this.title, this.body, final List<String>? tags})
+      : _tags = tags;
+
+  factory _$_NewPostPageState.fromJson(Map<String, dynamic> json) =>
+      _$$_NewPostPageStateFromJson(json);
+
+  @override
+  final String? title;
+  @override
+  final String? body;
+  final List<String>? _tags;
+  @override
+  List<String>? get tags {
+    final value = _tags;
+    if (value == null) return null;
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'NewPostPageState(title: $title, body: $body, tags: $tags)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NewPostPageState &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.body, body) || other.body == body) &&
+            const DeepCollectionEquality().equals(other._tags, _tags));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, title, body, const DeepCollectionEquality().hash(_tags));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_NewPostPageStateCopyWith<_$_NewPostPageState> get copyWith =>
+      __$$_NewPostPageStateCopyWithImpl<_$_NewPostPageState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_NewPostPageStateToJson(
+      this,
+    );
+  }
+}
+
+abstract class _NewPostPageState implements NewPostPageState {
+  const factory _NewPostPageState(
+      {final String? title,
+      final String? body,
+      final List<String>? tags}) = _$_NewPostPageState;
+
+  factory _NewPostPageState.fromJson(Map<String, dynamic> json) =
+      _$_NewPostPageState.fromJson;
+
+  @override
+  String? get title;
+  @override
+  String? get body;
+  @override
+  List<String>? get tags;
+  @override
+  @JsonKey(ignore: true)
+  _$$_NewPostPageStateCopyWith<_$_NewPostPageState> get copyWith =>
+      throw _privateConstructorUsedError;
+}

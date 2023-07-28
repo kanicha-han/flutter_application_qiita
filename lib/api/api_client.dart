@@ -5,11 +5,13 @@ import '../model/article.dart';
 
 part 'api_client.g.dart';
 
-//API呼び出しデータを取得するためのクラス
 @RestApi(baseUrl: URLConst.baseUrl)
 abstract class QiitaApiClient {
   factory QiitaApiClient(Dio dio, {String baseUrl}) = _QiitaApiClient;
 
   @GET('/articles')
   Future<List<Article>> fetchArticles();
+
+  @POST('/api/v2/items')
+  Future<Article> createArticle(@Body() Map<String, dynamic> payload);
 }

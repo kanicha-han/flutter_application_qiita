@@ -26,3 +26,14 @@ class ArticleList with _$ArticleList {
   factory ArticleList.fromJson(Map<String, dynamic> json) =>
       _$ArticleListFromJson(json);
 }
+
+@freezed
+class NewPostPageState with _$NewPostPageState {
+  const factory NewPostPageState({
+    String? title,
+    String? body,
+    List<String>? tags,
+  }) = _NewPostPageState;
+  factory NewPostPageState.fromJson(Map<String, dynamic> json) =>
+      _$NewPostPageStateFromJson(json);
+}

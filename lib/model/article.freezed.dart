@@ -418,3 +418,203 @@ abstract class _Sprites implements Sprites {
   _$$_SpritesCopyWith<_$_Sprites> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+ArticlePayload _$ArticlePayloadFromJson(Map<String, dynamic> json) {
+  return _ArticlePayload.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ArticlePayload {
+  @JsonKey(name: 'required')
+  String get body => throw _privateConstructorUsedError; //本文
+  @JsonKey(name: 'tags')
+  List<String> get tags => throw _privateConstructorUsedError; //記事についたタグ一覧
+  @JsonKey(name: 'title')
+  String get title => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ArticlePayloadCopyWith<ArticlePayload> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ArticlePayloadCopyWith<$Res> {
+  factory $ArticlePayloadCopyWith(
+          ArticlePayload value, $Res Function(ArticlePayload) then) =
+      _$ArticlePayloadCopyWithImpl<$Res, ArticlePayload>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'required') String body,
+      @JsonKey(name: 'tags') List<String> tags,
+      @JsonKey(name: 'title') String title});
+}
+
+/// @nodoc
+class _$ArticlePayloadCopyWithImpl<$Res, $Val extends ArticlePayload>
+    implements $ArticlePayloadCopyWith<$Res> {
+  _$ArticlePayloadCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? body = null,
+    Object? tags = null,
+    Object? title = null,
+  }) {
+    return _then(_value.copyWith(
+      body: null == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
+      tags: null == tags
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_ArticlePayloadCopyWith<$Res>
+    implements $ArticlePayloadCopyWith<$Res> {
+  factory _$$_ArticlePayloadCopyWith(
+          _$_ArticlePayload value, $Res Function(_$_ArticlePayload) then) =
+      __$$_ArticlePayloadCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'required') String body,
+      @JsonKey(name: 'tags') List<String> tags,
+      @JsonKey(name: 'title') String title});
+}
+
+/// @nodoc
+class __$$_ArticlePayloadCopyWithImpl<$Res>
+    extends _$ArticlePayloadCopyWithImpl<$Res, _$_ArticlePayload>
+    implements _$$_ArticlePayloadCopyWith<$Res> {
+  __$$_ArticlePayloadCopyWithImpl(
+      _$_ArticlePayload _value, $Res Function(_$_ArticlePayload) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? body = null,
+    Object? tags = null,
+    Object? title = null,
+  }) {
+    return _then(_$_ArticlePayload(
+      body: null == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
+      tags: null == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ArticlePayload implements _ArticlePayload {
+  const _$_ArticlePayload(
+      {@JsonKey(name: 'required') required this.body,
+      @JsonKey(name: 'tags') required final List<String> tags,
+      @JsonKey(name: 'title') required this.title})
+      : _tags = tags;
+
+  factory _$_ArticlePayload.fromJson(Map<String, dynamic> json) =>
+      _$$_ArticlePayloadFromJson(json);
+
+  @override
+  @JsonKey(name: 'required')
+  final String body;
+//本文
+  final List<String> _tags;
+//本文
+  @override
+  @JsonKey(name: 'tags')
+  List<String> get tags {
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
+
+//記事についたタグ一覧
+  @override
+  @JsonKey(name: 'title')
+  final String title;
+
+  @override
+  String toString() {
+    return 'ArticlePayload(body: $body, tags: $tags, title: $title)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ArticlePayload &&
+            (identical(other.body, body) || other.body == body) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            (identical(other.title, title) || other.title == title));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, body, const DeepCollectionEquality().hash(_tags), title);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ArticlePayloadCopyWith<_$_ArticlePayload> get copyWith =>
+      __$$_ArticlePayloadCopyWithImpl<_$_ArticlePayload>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ArticlePayloadToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ArticlePayload implements ArticlePayload {
+  const factory _ArticlePayload(
+      {@JsonKey(name: 'required') required final String body,
+      @JsonKey(name: 'tags') required final List<String> tags,
+      @JsonKey(name: 'title') required final String title}) = _$_ArticlePayload;
+
+  factory _ArticlePayload.fromJson(Map<String, dynamic> json) =
+      _$_ArticlePayload.fromJson;
+
+  @override
+  @JsonKey(name: 'required')
+  String get body;
+  @override //本文
+  @JsonKey(name: 'tags')
+  List<String> get tags;
+  @override //記事についたタグ一覧
+  @JsonKey(name: 'title')
+  String get title;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ArticlePayloadCopyWith<_$_ArticlePayload> get copyWith =>
+      throw _privateConstructorUsedError;
+}
