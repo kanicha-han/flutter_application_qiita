@@ -20,11 +20,15 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Article {
-  int get page => throw _privateConstructorUsedError;
-  int get perPage => throw _privateConstructorUsedError;
-  String get query => throw _privateConstructorUsedError;
-  Sprites get sprites => throw _privateConstructorUsedError;
-  bool get isPremium => throw _privateConstructorUsedError;
+  @JsonKey(name: 'id')
+  String get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'title')
+  String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'url')
+  String get url => throw _privateConstructorUsedError;
+  @JsonKey(name: 'likes_count')
+  int get likesCount => throw _privateConstructorUsedError;
+  Sprites get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,9 +41,13 @@ abstract class $ArticleCopyWith<$Res> {
       _$ArticleCopyWithImpl<$Res, Article>;
   @useResult
   $Res call(
-      {int page, int perPage, String query, Sprites sprites, bool isPremium});
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'url') String url,
+      @JsonKey(name: 'likes_count') int likesCount,
+      Sprites user});
 
-  $SpritesCopyWith<$Res> get sprites;
+  $SpritesCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -55,41 +63,41 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? page = null,
-    Object? perPage = null,
-    Object? query = null,
-    Object? sprites = null,
-    Object? isPremium = null,
+    Object? id = null,
+    Object? title = null,
+    Object? url = null,
+    Object? likesCount = null,
+    Object? user = null,
   }) {
     return _then(_value.copyWith(
-      page: null == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int,
-      perPage: null == perPage
-          ? _value.perPage
-          : perPage // ignore: cast_nullable_to_non_nullable
-              as int,
-      query: null == query
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
-      sprites: null == sprites
-          ? _value.sprites
-          : sprites // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      likesCount: null == likesCount
+          ? _value.likesCount
+          : likesCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
               as Sprites,
-      isPremium: null == isPremium
-          ? _value.isPremium
-          : isPremium // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SpritesCopyWith<$Res> get sprites {
-    return $SpritesCopyWith<$Res>(_value.sprites, (value) {
-      return _then(_value.copyWith(sprites: value) as $Val);
+  $SpritesCopyWith<$Res> get user {
+    return $SpritesCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
     });
   }
 }
@@ -102,10 +110,14 @@ abstract class _$$_ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int page, int perPage, String query, Sprites sprites, bool isPremium});
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'url') String url,
+      @JsonKey(name: 'likes_count') int likesCount,
+      Sprites user});
 
   @override
-  $SpritesCopyWith<$Res> get sprites;
+  $SpritesCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -118,33 +130,33 @@ class __$$_ArticleCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? page = null,
-    Object? perPage = null,
-    Object? query = null,
-    Object? sprites = null,
-    Object? isPremium = null,
+    Object? id = null,
+    Object? title = null,
+    Object? url = null,
+    Object? likesCount = null,
+    Object? user = null,
   }) {
     return _then(_$_Article(
-      page: null == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int,
-      perPage: null == perPage
-          ? _value.perPage
-          : perPage // ignore: cast_nullable_to_non_nullable
-              as int,
-      query: null == query
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
-      sprites: null == sprites
-          ? _value.sprites
-          : sprites // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      likesCount: null == likesCount
+          ? _value.likesCount
+          : likesCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
               as Sprites,
-      isPremium: null == isPremium
-          ? _value.isPremium
-          : isPremium // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -153,30 +165,33 @@ class __$$_ArticleCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Article implements _Article {
   const _$_Article(
-      {required this.page,
-      required this.perPage,
-      required this.query,
-      required this.sprites,
-      this.isPremium = false});
+      {@JsonKey(name: 'id') required this.id,
+      @JsonKey(name: 'title') required this.title,
+      @JsonKey(name: 'url') required this.url,
+      @JsonKey(name: 'likes_count') required this.likesCount,
+      required this.user});
 
   factory _$_Article.fromJson(Map<String, dynamic> json) =>
       _$$_ArticleFromJson(json);
 
   @override
-  final int page;
+  @JsonKey(name: 'id')
+  final String id;
   @override
-  final int perPage;
+  @JsonKey(name: 'title')
+  final String title;
   @override
-  final String query;
+  @JsonKey(name: 'url')
+  final String url;
   @override
-  final Sprites sprites;
+  @JsonKey(name: 'likes_count')
+  final int likesCount;
   @override
-  @JsonKey()
-  final bool isPremium;
+  final Sprites user;
 
   @override
   String toString() {
-    return 'Article(page: $page, perPage: $perPage, query: $query, sprites: $sprites, isPremium: $isPremium)';
+    return 'Article(id: $id, title: $title, url: $url, likesCount: $likesCount, user: $user)';
   }
 
   @override
@@ -184,18 +199,18 @@ class _$_Article implements _Article {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Article &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.perPage, perPage) || other.perPage == perPage) &&
-            (identical(other.query, query) || other.query == query) &&
-            (identical(other.sprites, sprites) || other.sprites == sprites) &&
-            (identical(other.isPremium, isPremium) ||
-                other.isPremium == isPremium));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.likesCount, likesCount) ||
+                other.likesCount == likesCount) &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, page, perPage, query, sprites, isPremium);
+      Object.hash(runtimeType, id, title, url, likesCount, user);
 
   @JsonKey(ignore: true)
   @override
@@ -213,24 +228,28 @@ class _$_Article implements _Article {
 
 abstract class _Article implements Article {
   const factory _Article(
-      {required final int page,
-      required final int perPage,
-      required final String query,
-      required final Sprites sprites,
-      final bool isPremium}) = _$_Article;
+      {@JsonKey(name: 'id') required final String id,
+      @JsonKey(name: 'title') required final String title,
+      @JsonKey(name: 'url') required final String url,
+      @JsonKey(name: 'likes_count') required final int likesCount,
+      required final Sprites user}) = _$_Article;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$_Article.fromJson;
 
   @override
-  int get page;
+  @JsonKey(name: 'id')
+  String get id;
   @override
-  int get perPage;
+  @JsonKey(name: 'title')
+  String get title;
   @override
-  String get query;
+  @JsonKey(name: 'url')
+  String get url;
   @override
-  Sprites get sprites;
+  @JsonKey(name: 'likes_count')
+  int get likesCount;
   @override
-  bool get isPremium;
+  Sprites get user;
   @override
   @JsonKey(ignore: true)
   _$$_ArticleCopyWith<_$_Article> get copyWith =>
@@ -243,18 +262,10 @@ Sprites _$SpritesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Sprites {
-  @JsonKey(name: 'title')
-  String? get title => throw _privateConstructorUsedError; // 記事のタイトル
-  @JsonKey(name: 'user_name')
-  String? get userName => throw _privateConstructorUsedError; // 作成者
-  @JsonKey(name: 'icon_url')
-  String? get iconUrl => throw _privateConstructorUsedError; // アイコン画像
-  @JsonKey(name: 'created_at')
-  String? get createdAt => throw _privateConstructorUsedError; // 投稿日
-  @JsonKey(name: 'reaction_count')
-  String? get reactionCount => throw _privateConstructorUsedError; // イイネ
-  @JsonKey(name: 'article_url')
-  String? get articleUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: 'id')
+  String get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'profile_image_url')
+  String get profileImageUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -267,12 +278,8 @@ abstract class $SpritesCopyWith<$Res> {
       _$SpritesCopyWithImpl<$Res, Sprites>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'user_name') String? userName,
-      @JsonKey(name: 'icon_url') String? iconUrl,
-      @JsonKey(name: 'created_at') String? createdAt,
-      @JsonKey(name: 'reaction_count') String? reactionCount,
-      @JsonKey(name: 'article_url') String? articleUrl});
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'profile_image_url') String profileImageUrl});
 }
 
 /// @nodoc
@@ -288,38 +295,18 @@ class _$SpritesCopyWithImpl<$Res, $Val extends Sprites>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
-    Object? userName = freezed,
-    Object? iconUrl = freezed,
-    Object? createdAt = freezed,
-    Object? reactionCount = freezed,
-    Object? articleUrl = freezed,
+    Object? id = null,
+    Object? profileImageUrl = null,
   }) {
     return _then(_value.copyWith(
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      userName: freezed == userName
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      iconUrl: freezed == iconUrl
-          ? _value.iconUrl
-          : iconUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      reactionCount: freezed == reactionCount
-          ? _value.reactionCount
-          : reactionCount // ignore: cast_nullable_to_non_nullable
-              as String?,
-      articleUrl: freezed == articleUrl
-          ? _value.articleUrl
-          : articleUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileImageUrl: null == profileImageUrl
+          ? _value.profileImageUrl
+          : profileImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -332,12 +319,8 @@ abstract class _$$_SpritesCopyWith<$Res> implements $SpritesCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'user_name') String? userName,
-      @JsonKey(name: 'icon_url') String? iconUrl,
-      @JsonKey(name: 'created_at') String? createdAt,
-      @JsonKey(name: 'reaction_count') String? reactionCount,
-      @JsonKey(name: 'article_url') String? articleUrl});
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'profile_image_url') String profileImageUrl});
 }
 
 /// @nodoc
@@ -350,38 +333,18 @@ class __$$_SpritesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
-    Object? userName = freezed,
-    Object? iconUrl = freezed,
-    Object? createdAt = freezed,
-    Object? reactionCount = freezed,
-    Object? articleUrl = freezed,
+    Object? id = null,
+    Object? profileImageUrl = null,
   }) {
     return _then(_$_Sprites(
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      userName: freezed == userName
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      iconUrl: freezed == iconUrl
-          ? _value.iconUrl
-          : iconUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      reactionCount: freezed == reactionCount
-          ? _value.reactionCount
-          : reactionCount // ignore: cast_nullable_to_non_nullable
-              as String?,
-      articleUrl: freezed == articleUrl
-          ? _value.articleUrl
-          : articleUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileImageUrl: null == profileImageUrl
+          ? _value.profileImageUrl
+          : profileImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -390,43 +353,22 @@ class __$$_SpritesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Sprites implements _Sprites {
   const _$_Sprites(
-      {@JsonKey(name: 'title') this.title,
-      @JsonKey(name: 'user_name') this.userName,
-      @JsonKey(name: 'icon_url') this.iconUrl,
-      @JsonKey(name: 'created_at') this.createdAt,
-      @JsonKey(name: 'reaction_count') this.reactionCount,
-      @JsonKey(name: 'article_url') this.articleUrl});
+      {@JsonKey(name: 'id') required this.id,
+      @JsonKey(name: 'profile_image_url') required this.profileImageUrl});
 
   factory _$_Sprites.fromJson(Map<String, dynamic> json) =>
       _$$_SpritesFromJson(json);
 
   @override
-  @JsonKey(name: 'title')
-  final String? title;
-// 記事のタイトル
+  @JsonKey(name: 'id')
+  final String id;
   @override
-  @JsonKey(name: 'user_name')
-  final String? userName;
-// 作成者
-  @override
-  @JsonKey(name: 'icon_url')
-  final String? iconUrl;
-// アイコン画像
-  @override
-  @JsonKey(name: 'created_at')
-  final String? createdAt;
-// 投稿日
-  @override
-  @JsonKey(name: 'reaction_count')
-  final String? reactionCount;
-// イイネ
-  @override
-  @JsonKey(name: 'article_url')
-  final String? articleUrl;
+  @JsonKey(name: 'profile_image_url')
+  final String profileImageUrl;
 
   @override
   String toString() {
-    return 'Sprites(title: $title, userName: $userName, iconUrl: $iconUrl, createdAt: $createdAt, reactionCount: $reactionCount, articleUrl: $articleUrl)';
+    return 'Sprites(id: $id, profileImageUrl: $profileImageUrl)';
   }
 
   @override
@@ -434,22 +376,14 @@ class _$_Sprites implements _Sprites {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Sprites &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.userName, userName) ||
-                other.userName == userName) &&
-            (identical(other.iconUrl, iconUrl) || other.iconUrl == iconUrl) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.reactionCount, reactionCount) ||
-                other.reactionCount == reactionCount) &&
-            (identical(other.articleUrl, articleUrl) ||
-                other.articleUrl == articleUrl));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.profileImageUrl, profileImageUrl) ||
+                other.profileImageUrl == profileImageUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, userName, iconUrl,
-      createdAt, reactionCount, articleUrl);
+  int get hashCode => Object.hash(runtimeType, id, profileImageUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -467,33 +401,18 @@ class _$_Sprites implements _Sprites {
 
 abstract class _Sprites implements Sprites {
   const factory _Sprites(
-      {@JsonKey(name: 'title') final String? title,
-      @JsonKey(name: 'user_name') final String? userName,
-      @JsonKey(name: 'icon_url') final String? iconUrl,
-      @JsonKey(name: 'created_at') final String? createdAt,
-      @JsonKey(name: 'reaction_count') final String? reactionCount,
-      @JsonKey(name: 'article_url') final String? articleUrl}) = _$_Sprites;
+      {@JsonKey(name: 'id') required final String id,
+      @JsonKey(name: 'profile_image_url')
+      required final String profileImageUrl}) = _$_Sprites;
 
   factory _Sprites.fromJson(Map<String, dynamic> json) = _$_Sprites.fromJson;
 
   @override
-  @JsonKey(name: 'title')
-  String? get title;
-  @override // 記事のタイトル
-  @JsonKey(name: 'user_name')
-  String? get userName;
-  @override // 作成者
-  @JsonKey(name: 'icon_url')
-  String? get iconUrl;
-  @override // アイコン画像
-  @JsonKey(name: 'created_at')
-  String? get createdAt;
-  @override // 投稿日
-  @JsonKey(name: 'reaction_count')
-  String? get reactionCount;
-  @override // イイネ
-  @JsonKey(name: 'article_url')
-  String? get articleUrl;
+  @JsonKey(name: 'id')
+  String get id;
+  @override
+  @JsonKey(name: 'profile_image_url')
+  String get profileImageUrl;
   @override
   @JsonKey(ignore: true)
   _$$_SpritesCopyWith<_$_Sprites> get copyWith =>

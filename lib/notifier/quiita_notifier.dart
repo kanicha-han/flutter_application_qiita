@@ -1,27 +1,13 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_application_qiita/model/article.dart';
-import 'package:flutter_application_qiita/state/state.dart';
-import '../repository/repository.dart';
 
-class ArticleListNotifier extends StateNotifier<AsyncValue<ArticleState>> {
-  final Repository _repository;
+import '../state/state.dart';
 
-  ArticleListNotifier(this._repository) : super(AsyncValue.loading()) {
-    fetchArticles();
-  }
-
-  Future<void> fetchArticles() async {
-    try {
-      List<Article> articles = await _repository.fetchList();
-      state = AsyncValue.data(ArticleState(articleList: articles));
-    } catch (error, stack) {
-      state = AsyncValue.error(error, stack);
-    }
-  }
-}
-
-final articleListProvider =
-    StateNotifierProvider<ArticleListNotifier, AsyncValue<ArticleState>>((ref) {
-  final repository = Repository();
-  return ArticleListNotifier(repository);
+final articleListProvider = FutureProvider<ArticleState>((ref) async {
+  final dio = Dio();
+  final response = await dio.get('https://qiita.com/api/v2/items');
+  final data = response.data as List;
+  final articles = data.map((json) => Article.fromJson(json)).toList();
+  return ArticleState(articleList: articles);
 });

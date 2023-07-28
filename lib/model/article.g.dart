@@ -7,37 +7,29 @@ part of 'article.dart';
 // **************************************************************************
 
 _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
-      page: json['page'] as int,
-      perPage: json['perPage'] as int,
-      query: json['query'] as String,
-      sprites: Sprites.fromJson(json['sprites'] as Map<String, dynamic>),
-      isPremium: json['isPremium'] as bool? ?? false,
+      id: json['id'] as String,
+      title: json['title'] as String,
+      url: json['url'] as String,
+      likesCount: json['likes_count'] as int,
+      user: Sprites.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_ArticleToJson(_$_Article instance) =>
     <String, dynamic>{
-      'page': instance.page,
-      'perPage': instance.perPage,
-      'query': instance.query,
-      'sprites': instance.sprites,
-      'isPremium': instance.isPremium,
+      'id': instance.id,
+      'title': instance.title,
+      'url': instance.url,
+      'likes_count': instance.likesCount,
+      'user': instance.user,
     };
 
 _$_Sprites _$$_SpritesFromJson(Map<String, dynamic> json) => _$_Sprites(
-      title: json['title'] as String?,
-      userName: json['user_name'] as String?,
-      iconUrl: json['icon_url'] as String?,
-      createdAt: json['created_at'] as String?,
-      reactionCount: json['reaction_count'] as String?,
-      articleUrl: json['article_url'] as String?,
+      id: json['id'] as String,
+      profileImageUrl: json['profile_image_url'] as String,
     );
 
 Map<String, dynamic> _$$_SpritesToJson(_$_Sprites instance) =>
     <String, dynamic>{
-      'title': instance.title,
-      'user_name': instance.userName,
-      'icon_url': instance.iconUrl,
-      'created_at': instance.createdAt,
-      'reaction_count': instance.reactionCount,
-      'article_url': instance.articleUrl,
+      'id': instance.id,
+      'profile_image_url': instance.profileImageUrl,
     };

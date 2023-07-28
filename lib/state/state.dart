@@ -2,6 +2,7 @@ import 'package:flutter_application_qiita/model/article.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'state.freezed.dart';
+part 'state.g.dart';
 
 @freezed
 class ArticleState with _$ArticleState {
