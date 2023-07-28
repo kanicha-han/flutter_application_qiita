@@ -39,3 +39,17 @@ Map<String, dynamic> _$$_ArticleListToJson(_$_ArticleList instance) =>
       'previous': instance.previous,
       'results': instance.results,
     };
+
+_$_NewPostPageState _$$_NewPostPageStateFromJson(Map<String, dynamic> json) =>
+    _$_NewPostPageState(
+      title: json['title'] as String?,
+      body: json['body'] as String?,
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    );
+
+Map<String, dynamic> _$$_NewPostPageStateToJson(_$_NewPostPageState instance) =>
+    <String, dynamic>{
+      'title': instance.title,
+      'body': instance.body,
+      'tags': instance.tags,
+    };

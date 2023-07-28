@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../notifier/quiita_notifier.dart';
+import 'new_post.dart';
 
 class TopPage extends ConsumerWidget {
   const TopPage({Key? key}) : super(key: key);
@@ -22,6 +23,7 @@ class TopPage extends ConsumerWidget {
     print('記事の状態をウォッチ');
 
     return Scaffold(
+      appBar: AppBar(title: Text('記事一覧')),
       body: state.when(
         data: (articleState) {
           final articles = articleState.articleList;
@@ -44,6 +46,16 @@ class TopPage extends ConsumerWidget {
         },
         loading: () => Center(child: CircularProgressIndicator()),
         error: (error, stackTrace) => Center(child: Text('Error: $error')),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NewPostPage()),
+          );
+        },
+        child: const Icon(Icons.add),
+        backgroundColor: Colors.green,
       ),
     );
   }

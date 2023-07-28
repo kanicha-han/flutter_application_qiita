@@ -33,3 +33,17 @@ Map<String, dynamic> _$$_SpritesToJson(_$_Sprites instance) =>
       'id': instance.id,
       'profile_image_url': instance.profileImageUrl,
     };
+
+_$_ArticlePayload _$$_ArticlePayloadFromJson(Map<String, dynamic> json) =>
+    _$_ArticlePayload(
+      body: json['required'] as String,
+      tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
+      title: json['title'] as String,
+    );
+
+Map<String, dynamic> _$$_ArticlePayloadToJson(_$_ArticlePayload instance) =>
+    <String, dynamic>{
+      'required': instance.body,
+      'tags': instance.tags,
+      'title': instance.title,
+    };

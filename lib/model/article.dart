@@ -27,3 +27,15 @@ class Sprites with _$Sprites {
   factory Sprites.fromJson(Map<String, dynamic> json) =>
       _$SpritesFromJson(json);
 }
+
+@freezed
+class ArticlePayload with _$ArticlePayload {
+  const factory ArticlePayload({
+    @JsonKey(name: 'required') required String body, //本文
+    @JsonKey(name: 'tags') required List<String> tags, //記事についたタグ一覧
+    @JsonKey(name: 'title') required String title, //記事のタイトル
+  }) = _ArticlePayload;
+
+  factory ArticlePayload.fromJson(Map<String, dynamic> json) =>
+      _$ArticlePayloadFromJson(json);
+}
