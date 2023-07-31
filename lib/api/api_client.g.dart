@@ -13,41 +13,12 @@ class _QiitaApiClient implements QiitaApiClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://qiita.com/api/v2/items';
+    baseUrl ??= 'https://qiita.com/api/v2/';
   }
 
   final Dio _dio;
 
   String? baseUrl;
-
-  @override
-  Future<List<Article>> fetchArticles() async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
-    final _result =
-        await _dio.fetch<List<dynamic>>(_setStreamType<List<Article>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/articles',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    var value = _result.data!
-        .map((dynamic i) => Article.fromJson(i as Map<String, dynamic>))
-        .toList();
-    return value;
-  }
 
   @override
   Future<Article> createArticle(Map<String, dynamic> payload) async {
@@ -64,7 +35,7 @@ class _QiitaApiClient implements QiitaApiClient {
     )
             .compose(
               _dio.options,
-              '/api/v2/items',
+              'items',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -74,6 +45,62 @@ class _QiitaApiClient implements QiitaApiClient {
               baseUrl,
             ))));
     final value = Article.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<Article>> fetchArticles() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<Article>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'items',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    var value = _result.data!
+        .map((dynamic i) => Article.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<User> getUser(String userId) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<User>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'users/${userId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = User.fromJson(_result.data!);
     return value;
   }
 

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_application_qiita/model/article.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -27,6 +28,7 @@ class ArticleList with _$ArticleList {
       _$ArticleListFromJson(json);
 }
 
+//記事の新規投稿のstate
 @freezed
 class NewPostPageState with _$NewPostPageState {
   const factory NewPostPageState({

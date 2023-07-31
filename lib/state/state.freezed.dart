@@ -124,7 +124,7 @@ class __$$_ArticleStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ArticleState implements _ArticleState {
+class _$_ArticleState with DiagnosticableTreeMixin implements _ArticleState {
   const _$_ArticleState({this.list, final List<Article>? articleList})
       : _articleList = articleList;
 
@@ -144,8 +144,17 @@ class _$_ArticleState implements _ArticleState {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ArticleState(list: $list, articleList: $articleList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ArticleState'))
+      ..add(DiagnosticsProperty('list', list))
+      ..add(DiagnosticsProperty('articleList', articleList));
   }
 
   @override
@@ -310,7 +319,7 @@ class __$$_ArticleListCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ArticleList implements _ArticleList {
+class _$_ArticleList with DiagnosticableTreeMixin implements _ArticleList {
   const _$_ArticleList(
       {required this.count,
       required this.next,
@@ -336,8 +345,19 @@ class _$_ArticleList implements _ArticleList {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ArticleList(count: $count, next: $next, previous: $previous, results: $results)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ArticleList'))
+      ..add(DiagnosticsProperty('count', count))
+      ..add(DiagnosticsProperty('next', next))
+      ..add(DiagnosticsProperty('previous', previous))
+      ..add(DiagnosticsProperty('results', results));
   }
 
   @override
@@ -499,7 +519,9 @@ class __$$_NewPostPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NewPostPageState implements _NewPostPageState {
+class _$_NewPostPageState
+    with DiagnosticableTreeMixin
+    implements _NewPostPageState {
   const _$_NewPostPageState({this.title, this.body, final List<String>? tags})
       : _tags = tags;
 
@@ -521,8 +543,18 @@ class _$_NewPostPageState implements _NewPostPageState {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'NewPostPageState(title: $title, body: $body, tags: $tags)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'NewPostPageState'))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('body', body))
+      ..add(DiagnosticsProperty('tags', tags));
   }
 
   @override

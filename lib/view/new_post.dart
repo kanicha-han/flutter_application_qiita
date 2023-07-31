@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_qiita/url/url.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../api/api_client.dart';
@@ -15,6 +16,10 @@ class NewPostPageController extends StateNotifier<NewPostPageState> {
 
   void updateBody(String value) {
     state = state.copyWith(body: value);
+  }
+
+  void updateTags(String value) {
+    state = state.copyWith(tags: value.split(','));
   }
 }
 
@@ -52,17 +57,17 @@ class NewPostPage extends ConsumerWidget {
               ),
               const SizedBox(height: 16.0),
               //タグ
-              // TextFormField(
-              //   decoration: const InputDecoration(
-              //     labelText: 'タグ',
-              //     border: OutlineInputBorder(),
-              //   ),
-              //   onSaved: (value) {
-              //     ref
-              //         .read(newPostPageStateProvider.notifier)
-              //         .updateTags(value ?? '');
-              //   },
-              // ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'タグ',
+                  border: OutlineInputBorder(),
+                ),
+                onSaved: (value) {
+                  ref
+                      .read(newPostPageStateProvider.notifier)
+                      .updateTags(value ?? '');
+                },
+              ),
               //本文
               TextFormField(
                 decoration: const InputDecoration(
@@ -87,23 +92,61 @@ class NewPostPage extends ConsumerWidget {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
                       final state = ref.read(newPostPageStateProvider);
-                      //qiitaのアクセストークン
-                      final token = 'be15cdc9733477a96d9952950aaed767ff6ed300';
+                      // qiitaのアクセストークン
+                      final token = '6928607654fffb6ea8e6aa2843456c6a4093802d';
+                      // userID
+                      final userId = 'himmel.373';
+
+                      String userUrl = URLConst.baseUrl + '/users/' + userId;
+
                       final dio = Dio();
+
                       dio.options.headers['Authorization'] = 'Bearer $token';
+                      dio.interceptors.add(
+                        InterceptorsWrapper(
+                          onRequest: (RequestOptions options,
+                              RequestInterceptorHandler handler) {
+                            print('Request data: ${options.data}');
+                            print('Request headers: ${options.headers}');
+                            print('Request url: ${options.uri}'); // リクエストURLを出力
+                            return handler.next(options);
+                          },
+                          onResponse: (Response response,
+                              ResponseInterceptorHandler handler) {
+                            print('Response data: ${response.data}');
+                            print('Response headers: ${response.headers}');
+                            return handler.next(response);
+                          },
+                          onError:
+                              (DioError e, ErrorInterceptorHandler handler) {
+                            print('Error: ${e.message}');
+                            print('Error info: ${e.response?.data}');
+                            return handler.next(e);
+                          },
+                        ),
+                      );
+
                       final apiClient = QiitaApiClient(dio);
                       try {
+                        // ユーザー情報を取得
+                        final user = await apiClient.getUser(userId);
+                        print('User info: ${user.toJson()}'); // 取得したユーザー情報を出力
+
+                        // 記事を投稿
                         final response = await apiClient.createArticle({
                           'body': state.body,
-                          'title': state.title,
+                          'coediting': false,
+                          'private': false,
                           'tags': state.tags
                                   ?.map((tag) => {
-                                        'name': tag,
-                                        'versions': ['0.0.0']
+                                        'name': tag.trim(),
+                                        'versions': ['0.0.1']
                                       })
                                   .toList() ??
                               [],
-                          'private': false,
+                          'title': state.title,
+                          'tweet': false,
+                          'slide': false,
                         });
                         print('Successfully posted');
                       } catch (e) {
