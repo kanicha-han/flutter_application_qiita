@@ -68,6 +68,7 @@ class NewPostPage extends ConsumerWidget {
                       .updateTags(value ?? '');
                 },
               ),
+              const SizedBox(height: 16.0),
               //本文
               TextFormField(
                 decoration: const InputDecoration(
